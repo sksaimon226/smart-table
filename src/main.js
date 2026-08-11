@@ -38,14 +38,14 @@ function render(action) {
     let result = [...data]; // копируем для последующего изменения
     // @todo: использование
     result = applyPagination(result, state, action);
-
+    result = applySorting(result, state, action);
     sampleTable.render(result)
 }
 
 const sampleTable = initTable({
     tableTemplate: 'table',
     rowTemplate: 'row',
-    before: ['header'],
+    before: ['header', 'filter'],
     after: ['pagination']
 }, render);
 
@@ -54,6 +54,9 @@ const applySorting = initSorting([        // Нам нужно передать 
     sampleTable.header.elements.sortByDate,
     sampleTable.header.elements.sortByTotal
 ]);
+const applyFiltering = initFiltering(sampleTable.filter.elements, {    // передаём элементы фильтра
+    searchBySeller: indexes.sellers                                    // для элемента с именем searchBySeller устанавливаем массив продавцов
+});
 import { initPagination } from "./components/pagination.js"
 const applyPagination = initPagination(
     sampleTable.pagination.elements,             // передаём сюда элементы пагинации, найденные в шаблоне
