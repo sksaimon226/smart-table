@@ -43,7 +43,7 @@ async function render(action) {
     let query = {}; // здесь будут формироваться параметры запроса
     // другие apply*
     query = applySearching(query, state, action);
-     query = applyFiltering(query, state, action);
+    query = applyFiltering(query, state, action);
     query = applySorting(query, state, action);
     query = applyPagination(query, state, action); // обновляем query
 
@@ -67,8 +67,8 @@ const applySearching = initSearching('search', {
     searchField: 'search' // передаем имя поля для поиска
 });
 
-const {applyFiltering, updateIndexes} = initFiltering(sampleTable.filter.elements, {    // передаём элементы фильтра
-//searchBySeller: indexes.sellers                                    // для элемента с именем searchBySeller устанавливаем массив продавцов
+const { applyFiltering, updateIndexes } = initFiltering(sampleTable.filter.elements, {    // передаём элементы фильтра
+    //searchBySeller: indexes.sellers                                    // для элемента с именем searchBySeller устанавливаем массив продавцов
 });
 
 const applySorting = initSorting([        // Нам нужно передать сюда массив элементов, которые вызывают сортировку, чтобы изменять их визуальное представление
@@ -76,7 +76,7 @@ const applySorting = initSorting([        // Нам нужно передать 
     sampleTable.header.elements.sortByTotal
 ]);
 
-const {applyPagination, updatePagination} = initPagination(
+const { applyPagination, updatePagination } = initPagination(
     sampleTable.pagination.elements,             // передаём сюда элементы пагинации, найденные в шаблоне
     (el, page, isCurrent) => {                    // и колбэк, чтобы заполнять кнопки страниц данными
         const input = el.querySelector('input');

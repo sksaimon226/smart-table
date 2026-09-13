@@ -50,5 +50,5 @@ export function initFiltering(elements) {
         updateIndexes,
         applyFiltering
     }
-} 
-    
+}
+

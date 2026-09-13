@@ -38,7 +38,7 @@ export const initPagination = ({ pages, fromRow, toRow, totalRows }, createPage)
         // Сколько всего строк выводим на всех страницах вместе (после фильтрации будет меньше)
         // @todo: #2.2 — посчитать сколько строк нужно пропустить и получить срез данных
         const skip = (page - 1) * limit;            // сколько строк нужно пропустить
-        
+
     }
     return {
         updatePagination,
