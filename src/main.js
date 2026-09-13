@@ -47,7 +47,7 @@ async function render(action) {
     query = applySorting(query, state, action);
     query = applyPagination(query, state, action); // обновляем query
 
-    const { total, items } = await api.getRecords(query); // запрашиваем данные с собранными параметрами
+    const { total, items } = await API.getRecords(query); // запрашиваем данные с собранными параметрами
 
     updatePagination(total, query); // перерисовываем пагинатор
     sampleTable.render(items);

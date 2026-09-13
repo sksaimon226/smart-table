@@ -33,7 +33,7 @@ export function initFiltering(elements) {
         }
 
         // @todo: #4.5 — отфильтровать данные используя компаратор
-        return data.filter(row => compare(row, state));
+        //return data.filter(row => compare(row, state));
         const filter = {};
         Object.keys(elements).forEach(key => {
             if (elements[key]) {
